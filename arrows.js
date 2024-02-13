@@ -26,9 +26,7 @@ function handleTouch(x, y) {
       letters.push(new Bubble(String.fromCharCode(curLetter)));
       curLetter++;
 
-      curLetterElem = document.getElementById("curLetter");
-      curLetter.textContent = String.fromCharCode(curLetter);
-      // curLetter.innerHtml = String.fromCharCode(curLetter)
+      updateCurLetterP()      
 
       b = new Bubble(String.fromCharCode(curLetter));
       if (letters.length < maxLetters) {
@@ -52,3 +50,5 @@ document.addEventListener("touchstart", function (event) {
 });
 
 document.addEventListener("click", onClick);
+
+
