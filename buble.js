@@ -8,7 +8,7 @@ class Bubble {
 
     this.image = new Image();
     // this.image.src = `letters/${this.letter}.png`;
-    this.image.src = `${this.letter}.png`;
+    this.image.src = `./${this.letter}.png`;
   }
   draw() {
     ctx.drawImage(this.image, this.x, this.y, BUBBLE_SIZE, BUBBLE_SIZE);
