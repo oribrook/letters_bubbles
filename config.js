@@ -1,5 +1,5 @@
 BUBBLE_SIZE = 50;
-maxLetters = 5;
+maxLetters = 4;
 gameSpeed = 20;
 
 const canvasElem = document.getElementById("canvas");

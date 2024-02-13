@@ -25,18 +25,24 @@ function handleTouch(x, y) {
       explosionSound.play();
       letters.push(new Bubble(String.fromCharCode(curLetter)));
       curLetter++;
-      letters.push(new Bubble(String.fromCharCode(curLetter)));
 
-      // if (letters.length > maxLetters) {
-      //     i_ = Math.floor(Math.random() * letters.length);
-      //     letters.splice(i_, 1);
-      // }
+      curLetterElem = document.getElementById("curLetter");
+      curLetter.textContent = String.fromCharCode(curLetter);
+      // curLetter.innerHtml = String.fromCharCode(curLetter)
+
+      b = new Bubble(String.fromCharCode(curLetter));
+      if (letters.length < maxLetters) {
+        letters.push(new Bubble(String.fromCharCode(curLetter)));
+      } else {
+        i_ = Math.floor(Math.random() * letters.length);
+        letters[i_] = new Bubble(String.fromCharCode(curLetter));
+      }
     }
   }
 }
 
 function onClick(event) {
-    handleTouch(event.clientX, event.clientY);
+  handleTouch(event.clientX, event.clientY);
 }
 document.addEventListener("touchstart", function (event) {
   const touch = event.touches[0];
@@ -46,4 +52,3 @@ document.addEventListener("touchstart", function (event) {
 });
 
 document.addEventListener("click", onClick);
-
