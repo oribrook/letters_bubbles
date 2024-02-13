@@ -7,7 +7,8 @@ class Bubble {
     this.y = Math.random() * CANVAS_HEIGHT - CANVAS_HEIGHT / 2;
 
     this.image = new Image();
-    this.image.src = `letters/${this.letter}.png`;
+    // this.image.src = `letters/${this.letter}.png`;
+    this.image.src = `${this.letter}.png`;
   }
   draw() {
     ctx.drawImage(this.image, this.x, this.y, BUBBLE_SIZE, BUBBLE_SIZE);
@@ -25,8 +26,5 @@ class Bubble {
   }
 }
 
-for (let i = 1; i < 2; i++) {
-  letters.push(new Bubble("A", 0, 0));
-}
+letters.push(new Bubble("A", 0, 0));
 
-let b = new Bubble("A", 0, 0);
