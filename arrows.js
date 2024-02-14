@@ -16,7 +16,7 @@ function handleTouch(x, y) {
       handleSuccess();
       return;
     }
-    handleFail();
+    // handleFail();
   }
   // 1
   if (x > CANVAS_WIDTH / 2 && y < CANVAS_HEIGHT / 2) {
