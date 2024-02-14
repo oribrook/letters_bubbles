@@ -9,14 +9,7 @@ function handleTouch(x, y) {
   }
   x -= canvasStartX;
   y -= canvasStartY;
-
-  ctx.fillRect(
-    CANVAS_WIDTH / 2,
-    CANVAS_HEIGHT / 2,
-    CANVAS_WIDTH / 2,
-    CANVAS_HEIGHT / 2
-  );
-
+  
   // 0
   if (x < CANVAS_WIDTH / 2 && y < CANVAS_HEIGHT / 2) {
     if (curLetter == bubbles[0].letter) {

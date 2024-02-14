@@ -20,12 +20,22 @@ let letters = [];
 const explosions = [];
 
 // let curLetter = 65+24;
-let curLetter = 'A';
+let curLetter = "A";
 
-letterAudio = new Audio()
-letterAudio.src = "sounds/A.ogg"
-letterAudio.play()
+letterAudio = new Audio();
+letterAudio.src = "sounds/A.ogg";
+letterAudio.play();
 
-const soundElem = document.getElementById("soundbutton")
-soundElem.addEventListener("click", ()=>{letterAudio.play()})
-soundElem.addEventListener("startTouch", ()=>{letterAudio.play()})
+const soundElem = document.getElementById("soundbutton");
+soundElem.addEventListener("click", () => {
+  letterAudio.play();
+});
+soundElem.addEventListener("startTouch", () => {
+  letterAudio.play();
+});
+
+const applauseSound = new Audio();
+applauseSound.src = "sounds/applause.wav";
+
+const failSound = new Audio();
+failSound.src = "sounds/fail.wav";

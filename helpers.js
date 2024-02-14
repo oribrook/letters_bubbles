@@ -33,16 +33,16 @@ function nextLetter() {
 }
 
 function handleSuccess() {
-  //   if (!circle2) {
-  //     curLetter = curLetter.charCodeAt(0) + 1;
-  //   }
-  //   if (curLetter >= 65 + 26) {
-  //     circle2 = true;
-  //   }
-  //   if (circle2) {
-  //     curLetter = Math.floor(Math.random() * 26 + 65);
-  //   }
-  nextLetter();
-  initLettersAndBubbles();
-  updateCurLetterP();
+    applauseSound.play().then(() => {      
+        nextLetter();
+        initLettersAndBubbles();
+        updateCurLetterP();
+  })
+}
+
+function handleFail() {
+    failSound.play().then(() => {
+        letterAudio.play()
+    })
+    
 }
