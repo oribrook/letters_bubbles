@@ -1,41 +1,53 @@
 function handleTouch(x, y) {
-  console.log(x, y);
-  console.log(letters);
-  console.log(curLetter);
+  if (
+    x < canvasStartX ||
+    x > canvasStartX + CANVAS_WIDTH ||
+    y < canvasStartY ||
+    y > canvasStartY + CANVAS_HEIGHT
+  ) {
+    return;
+  }
+  x -= canvasStartX;
+  y -= canvasStartY;
 
-  for (let i = 0; i < letters.length; i++) {
-    b = letters[i];
-    if (String.fromCharCode(curLetter) != b.letter) {
-      continue;
+  ctx.fillRect(
+    CANVAS_WIDTH / 2,
+    CANVAS_HEIGHT / 2,
+    CANVAS_WIDTH / 2,
+    CANVAS_HEIGHT / 2
+  );
+
+  // 0
+  if (x < CANVAS_WIDTH / 2 && y < CANVAS_HEIGHT / 2) {
+    if (curLetter == bubbles[0].letter) {
+      handleSuccess();
+      return;
     }
-
-    letterX = b.x + canvasStartX;
-    letterY = b.y + canvasStartY;
-
-    if (
-      x > letterX &&
-      x < letterX + BUBBLE_SIZE &&
-      y > letterY &&
-      y < letterY + BUBBLE_SIZE
-    ) {
-      explosions.push(
-        new Explosion(letters[i].x, letters[i].y, explosions.length)
-      );
-      letters.splice(i, 1);
-      explosionSound.play();
-      letters.push(new Bubble(String.fromCharCode(curLetter)));
-      curLetter++;
-
-      updateCurLetterP()      
-
-      b = new Bubble(String.fromCharCode(curLetter));
-      if (letters.length < maxLetters) {
-        letters.push(new Bubble(String.fromCharCode(curLetter)));
-      } else {
-        i_ = Math.floor(Math.random() * letters.length);
-        letters[i_] = new Bubble(String.fromCharCode(curLetter));
-      }
+    handleFail();
+  }
+  // 1
+  if (x > CANVAS_WIDTH / 2 && y < CANVAS_HEIGHT / 2) {
+    if (curLetter == bubbles[1].letter) {
+      handleSuccess();
+      return;
     }
+    handleFail();
+  }
+  // 2
+  if (x < CANVAS_WIDTH / 2 && y > CANVAS_HEIGHT / 2) {
+    if (curLetter == bubbles[2].letter) {
+      handleSuccess();
+      return;
+    }
+    handleFail();
+  }
+  // 3
+  if (x > CANVAS_WIDTH / 2 && y > CANVAS_HEIGHT / 2) {
+    if (curLetter == bubbles[3].letter) {
+      handleSuccess();
+      return;
+    }
+    handleFail();
   }
 }
 
@@ -50,5 +62,3 @@ document.addEventListener("touchstart", function (event) {
 });
 
 document.addEventListener("click", onClick);
-
-

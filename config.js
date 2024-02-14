@@ -1,11 +1,11 @@
 BUBBLE_SIZE = 100;
-maxLetters = 4;
+maxLetters = 3;
 gameSpeed = 20;
 
 const canvasElem = document.getElementById("canvas");
 const ctx = canvasElem.getContext("2d");
-CANVAS_WIDTH = canvasElem.width = window.innerWidth * 0.9;
-CANVAS_HEIGHT = canvasElem.height = window.innerHeight * 0.7;
+CANVAS_WIDTH = canvasElem.width = window.innerWidth * 0.95;
+CANVAS_HEIGHT = canvasElem.height = window.innerHeight * 0.9;
 
 mainCanvas = document.getElementById("canvas");
 rect = mainCanvas.getBoundingClientRect();
@@ -14,7 +14,18 @@ canvasEndX = rect.right;
 canvasStartY = rect.top;
 canvasEndY = rect.bottom;
 
-const letters = [];
+circle2 = false; // after finish all letters, next letter will be random
+
+let letters = [];
 const explosions = [];
 
-let curLetter = 65;
+// let curLetter = 65+24;
+let curLetter = 'A';
+
+letterAudio = new Audio()
+letterAudio.src = "sounds/A.ogg"
+letterAudio.play()
+
+const soundElem = document.getElementById("soundbutton")
+soundElem.addEventListener("click", ()=>{letterAudio.play()})
+soundElem.addEventListener("startTouch", ()=>{letterAudio.play()})
